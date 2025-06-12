@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNC Chits | Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A4699;
+            --primary-light: #1a5bbf;
+            --accent: #EDAA43;
+            --accent-light: #f8c97c;
+            --light: #f8f9fa;
+            --dark: #1a1d21;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --neumorphic-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8);
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--neumorphic-shadow);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            color: var(--primary);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn:active { transform: translateY(2px); }
+        .btn-primary { background: linear-gradient(145deg, var(--accent), var(--accent-light)); color: white; box-shadow: 0 4px 15px rgba(237, 170, 67, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(237, 170, 67, 0.4); }
+
+        .section { padding: 100px 0; }
+        #contact-section { background: #f8f9fc; padding-top: 120px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 42px; margin-bottom: 20px; color: var(--primary); position: relative; display: inline-block; }
+        .section-header h2:after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: var(--accent); }
+        .section-header p { color: var(--gray); max-width: 700px; margin: 30px auto 0; font-size: 20px; font-style: italic; }
+
+        /* Header Styles */
+        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.95); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); transition: var(--transition); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .logo { display: flex; align-items: center; }
+        .logo h1 { font-size: 32px; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
+        .nav-menu { display: flex; list-style: none; }
+        .nav-menu li { margin: 0 25px; }
+        .nav-menu a { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 18px; position: relative; padding: 5px 0; color: var(--primary); letter-spacing: 1px; text-decoration: none; }
+        .nav-menu a:after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--accent); transition: var(--transition); }
+        .nav-menu a:hover:after, .nav-menu a.active:after { width: 100%; }
+        .nav-buttons { display: flex; align-items: center; gap: 15px; }
+        .hamburger { display: none; cursor: pointer; color: var(--primary); font-size: 24px; }
+
+        /* NEW: Main Office Info & Map Section */
+        .main-office-section {
+            display: flex;
+            flex-direction: column; /* Stacks info and map vertically by default */
+            gap: 40px; /* Space between details and map */
+            margin-bottom: 60px;
+        }
+
+        .office-details-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .office-info-block {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary); /* A nice border */
+        }
+
+        .office-info-block h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .office-info-block p {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+
+        .office-info-block i {
+            margin-right: 12px;
+            color: var(--accent);
+            min-width: 20px;
+            margin-top: 2px;
+        }
+
+        .office-info-block .note {
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 15px;
+            color: var(--primary);
+        }
+
+        .main-interactive-map-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            padding: 15px; /* Padding inside the map container */
+        }
+
+        .main-interactive-map-container iframe {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            border: none;
+            border-radius: calc(var(--border-radius) - 10px);
+        }
+        /* END NEW: Main Office Info & Map Section */
+
+
+        /* Regional Maps Section (Interactive) */
+        .regional-map-area { margin-bottom: 60px; }
+        .region-map-header { text-align: center; margin-bottom: 30px; }
+        .region-map-header h3 { font-size: 32px; color: var(--primary); position: relative; display: inline-block; padding-bottom: 10px; }
+        .region-map-header h3:after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 70px; height: 3px; background: var(--accent); }
+        .interactive-map-container { background: white; border-radius: var(--border-radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 30px; padding: 15px; }
+        .interactive-map-container iframe { width: 100%; height: 450px; border: none; border-radius: calc(var(--border-radius) - 10px); }
+        
+        /* Branch Details Grid (Below Interactive Maps) */
+        .branch-details-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; padding: 30px; background: #f0f3f7; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+        .branch-card { background: white; border-radius: var(--border-radius); padding: 25px; box-shadow: var(--shadow); transition: var(--transition); border-left: 5px solid var(--accent); }
+        .branch-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12); }
+        .branch-card h4 { color: var(--primary); margin-bottom: 12px; font-size: 19px; }
+        .branch-card p { color: var(--gray); margin-bottom: 10px; font-size: 14px; display: flex; align-items: flex-start; line-height: 1.5; }
+        .branch-card i.fa-map-marker-alt, .branch-card i.fa-phone { margin-right: 10px; color: var(--accent); min-width: 18px; margin-top: 3px; }
+
+        /* Enquiry Form Section (Moved Near Footer) */
+        #enquiry-form-section { background-color: var(--light); padding-top: 60px; padding-bottom: 80px; }
+        #enquiry-form-section .section-header { margin-bottom: 40px; }
+        #enquiry-form-section .contact-form-container { max-width: 700px; margin: 0 auto; background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow); }
+        #enquiry-form-section .contact-form-container h3 { font-size: 22px; color: var(--primary); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); text-align: center;}
+        .form-group { margin-bottom: 20px; } /* Increased margin for form */
+        .form-label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary); }
+        .form-control { width: 100%; padding: 14px; border: 1px solid var(--light-gray); border-radius: 8px; font-family: 'Times New Roman', serif; font-size: 16px; transition: var(--transition); }
+        .form-control:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(10, 70, 153, 0.1); }
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+
+        
+        footer {
+            background: #f8f9fc; /* Match --light from WHAT1.html for consistency, or var(--dark) if preferred */
+            color: var(--dark);
+            padding: 80px 0 30px; /* Adjusted padding */
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .footer-grid { /* This class is from WHAT1.html */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 { /* From WHAT1.html */
+            font-size: 22px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif; /* Match other headings */
+        }
+
+        .footer-column h3:after { /* From WHAT1.html */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        .footer-column p { /* General paragraph style in footer column */
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul { /* From WHAT1.html */
+            list-style: none; /* Removed default bullets */
+            padding-left: 0; /* Remove default padding */
+        }
+
+        .footer-column ul li { /* From WHAT1.html */
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a, .footer-column ul li span { /* Style for links and non-link text items */
+            color: var(--gray);
+            transition: var(--transition);
+            display: inline-block; /* Or flex for icon alignment */
+            font-family: 'Times New Roman', serif;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .footer-column ul li i { /* Icon styling in footer lists */
+            margin-right: 10px;
+            color: var(--accent); /* Accent color for icons */
+            min-width: 18px; /* Ensure space for icon */
+        }
+
+        /* Specific hover for navigation type links in footer */
+        .footer-column.footer-navigation ul li a:hover,
+        .footer-column.footer-plans ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links { /* From WHAT1.html */
+            display: flex;
+            margin-top: 25px;
+            gap: 15px;
+        }
+
+        .social-links a { /* From WHAT1.html */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--neumorphic-shadow);
+            transition: var(--transition);
+            font-size: 20px;
+        }
+
+        .social-links a:hover { /* From WHAT1.html */
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom { /* From WHAT1.html */
+            border-top: 1px solid var(--light-gray);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 16px;
+        }
+         .footer-bottom p {
+             margin-bottom: 0;
+        }
+
+
+        /* Responsive Design Adjustments */
+        @media (min-width: 993px) {
+            /* For larger screens, maybe place details and map side-by-side */
+            .main-office-section {
+                flex-direction: row;
+                align-items: stretch; /* Make children stretch to fill height */
+            }
+            .office-details-wrapper {
+                flex: 1; /* Allow details to take available space */
+                grid-template-columns: 1fr; /* Stack details vertically within the wrapper */
+                align-content: start; /* Push content to the top if space is available */
+            }
+            .main-interactive-map-container {
+                flex: 2; /* Map takes more space */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { position: fixed; top: 70px; left: -100%; flex-direction: column; background: white; width: 100%; text-align: center; transition: 0.4s; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); padding: 30px 0; }
+            .nav-menu.active { left: 0; } .nav-menu li { margin: 15px 0; } .hamburger { display: block; }
+            .section { padding: 60px 0; } .section-header h2 { font-size: 32px; }
+            
+            /* Main office section responsive */
+            .main-office-section {
+                flex-direction: column; /* Always stack on smaller screens */
+            }
+            .office-info-block {
+                padding: 25px;
+            }
+            .office-info-block h3 {
+                font-size: 22px;
+            }
+            .main-interactive-map-container iframe {
+                height: 350px; /* Adjust map height for smaller screens */
+            }
+
+            .interactive-map-container iframe { height: 350px; }
+            .branch-details-grid { grid-template-columns: 1fr; }
+            
+        }
+        @media (max-width: 480px) {
+            .btn { padding: 12px 24px; font-size: 14px; }
+            .section-header h2 { font-size: 28px; } .region-map-header h3 { font-size: 26px; }
+            
+            /* Main office section responsive */
+            .office-info-block {
+                padding: 20px;
+            }
+            .office-info-block h3 {
+                font-size: 20px;
+            }
+            .main-interactive-map-container iframe {
+                height: 300px;
+            }
+
+            .interactive-map-container iframe { height: 300px; }
+            #enquiry-form-section .contact-form-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo"><h1>DNC <span>Chits</span></h1></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section id="contact-section" class="page-section">
+        <div class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p>We're here to help. Reach out through any of our offices or send us a message.</p>
+                </div>
+                
+                <div class="main-office-section">
+                    <div class="office-details-wrapper">
+                        <div class="office-info-block">
+                            <h3>Head Office</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> 49/14, B.Narasimman Road, North Boag Road, T.Nagar, Chennai – 600017.</p>
+                            <p><i class="fas fa-envelope"></i> info@dncchits.com</p>
+                            <p><i class="fas fa-phone"></i> (044) 4241 4444</p>
+                        </div>
+                        <div class="office-info-block">
+                            <h3>Registered Office</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> No 11, Nachiyappa Gounder Street, Dharmapuri - 636701, Opposite DNC Theater.</p>
+                            <p><i class="fas fa-phone"></i> Ph: 04342 262 040</p>
+                        </div>
+                        <div class="office-info-block">
+                            <h3>Office Timings</h3>
+                            <p><i class="fas fa-clock"></i> Monday - Saturday: 10:00 AM - 6:30 PM</p>
+                            <p><i class="fas fa-calendar-times"></i> Sunday: Closed</p>
+                            <p class="note">Please note: Timings may vary on public holidays.</p>
+                        </div>
+                    </div>
+
+                    <div class="main-interactive-map-container">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1oXt6gnghJCrv6gFR3QihrR9dJABuhBI&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="regional-map-area">
+                    <div class="region-map-header"><h3>Chennai Region Branches</h3></div>
+                    <div class="interactive-map-container">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1nicQHHuhbPh1hptYemNjMMlX7E3uiuo&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="branch-details-grid">
+                        <div class="branch-card"><h4>Purasawalkam</h4><p><i class="fas fa-map-marker-alt"></i>No 87, New No 165, Eden Plaza, Perambur Barracks Road, Purasawalkam, Chennai - 600084</p><p><i class="fas fa-phone"></i>Ph: 044 48522030</p></div>
+                        <div class="branch-card"><h4>Mylapore</h4><p><i class="fas fa-map-marker-alt"></i>Shop No. F2, 1st Floor, No. 64, North Mada Street, Mylapore, Chennai - 600004</p><p><i class="fas fa-phone"></i>Ph: 044 48682040</p></div>
+                        <div class="branch-card"><h4>Nanganallur</h4><p><i class="fas fa-map-marker-alt"></i>40/39D, Thiru Tower, First Floor, Vembuli Amman Koil St, Nanganallur, Chennai - 600061</p><p><i class="fas fa-phone"></i>Ph: 044 47822040</p></div>
+                        <div class="branch-card"><h4>Parrys</h4><p><i class="fas fa-map-marker-alt"></i>2nd Flr, N. Ramanlal Chamber, New No.6, Old No.29, Errabalu Chetty Street, George Town, Chennai-600001</p><p><i class="fas fa-phone"></i>Ph: 044 48652040</p></div>
+                        <div class="branch-card"><h4>Kancheepuram</h4><p><i class="fas fa-map-marker-alt"></i>1st Floor, No. 85/36, Vallal Pachaiyappan Street, Kancheepuram - 631 501</p><p><i class="fas fa-phone"></i>Ph: 044 27232020</p></div>
+                        <div class="branch-card"><h4>T. Nagar (Head Office)</h4><p><i class="fas fa-map-marker-alt"></i> 49/14, B.Narasimman Road, North Boag Road, T.Nagar, Chennai – 600017.</p><p><i class="fas fa-phone"></i> Ph: (044) 4241 4444</p></div>
+                        <div class="branch-card"><h4>Ambattur</h4><p><i class="fas fa-map-marker-alt"></i> No:84, 2nd floor, Mounasamy madam street, Venkatapuram, Ambattur, Chennai-600053.</p><p><i class="fas fa-phone"></i> Ph: 044 48502040</p></div>
+                        <div class="branch-card"><h4>Porur</h4><p><i class="fas fa-map-marker-alt"></i>1/5, Shop No.21, Subham Square Complex, Karambakkam, Porur, Chennai - 600116.</p><p><i class="fas fa-phone"></i> Ph: 044 48614060</p></div>
+                        <div class="branch-card"><h4>Madipakkam</h4><p><i class="fas fa-map-marker-alt"></i>1-A, Raghava 1st Street, Medavakkam Koot Road, Madipakkam, Chennai - 600091</p><p><i class="fas fa-phone"></i> Ph: 044 48684050</p></div>
+                    </div>
+                </div>
+
+                <div class="regional-map-area">
+                    <div class="region-map-header"><h3>Krishnagiri Region Branches</h3></div>
+                    <div class="interactive-map-container">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1Aa3toc8JZSlMgqSx2ZqWP8N-9FXGdDs&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                     <div class="branch-details-grid">
+                        <div class="branch-card"><h4>Dharmapuri (Regd. Office)</h4><p><i class="fas fa-map-marker-alt"></i>No 11, Nachiyappa Gounder Street, Dharmapuri - 636701, Opposite DNC Theater.</p><p><i class="fas fa-phone"></i>Ph: 04342 262040</p></div>
+                        <div class="branch-card"><h4>Hosur</h4><p><i class="fas fa-map-marker-alt"></i>No.47/18, Hari Towers, 1st Floor, Denkanikottai Road, Shanthi Nagar West, Hosur - 635109</p><p><i class="fas fa-phone"></i>Ph: 04344 223040</p></div>
+                        <div class="branch-card"><h4>Vellore</h4><p><i class="fas fa-map-marker-alt"></i># 30, 3rd Floor, SR ARCADE Officers line, Near Hotel Kanna, Vellore-632001</p><p><i class="fas fa-phone"></i>Ph: 04162 221040</p></div>
+                        <div class="branch-card"><h4>Krishnagiri</h4><p><i class="fas fa-map-marker-alt"></i>Sri Vijay Vidyalaya School Road, Near Stadium, Rayakottai Main Road, Krishnagiri - 635002</p><p><i class="fas fa-phone"></i>Ph: 04343 291888 / 291444</p></div>
+                        <div class="branch-card"><h4>Pochampalli</h4><p><i class="fas fa-map-marker-alt"></i>2/28A, First Floor, Dharmapuri Main Road, Near Anna Arivagam School, Pochampalli - 635206</p><p><i class="fas fa-phone"></i>Ph: 043 41296040</p></div>
+                        <div class="branch-card"><h4>Palacode</h4><p><i class="fas fa-map-marker-alt"></i>No.5/655/100,1st Floor, Amirtham Complex, M.G. Road, Palacode - 636808</p><p><i class="fas fa-phone"></i>Ph: 04348 222040</p></div>
+                    </div>
+                </div>
+
+                <div class="regional-map-area">
+                    <div class="region-map-header"><h3>Salem Region Branches</h3></div>
+                    <div class="interactive-map-container">
+                        <iframe src="https://www.google.com/maps/d/embed?mid=141gACM4PHrXiHPfZYaBgauFVODvWLrk&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="branch-details-grid">
+                        <div class="branch-card"><h4>Salem</h4><p><i class="fas fa-map-marker-alt"></i>101H, Saradha Collage Main Road, New Fairlands, Alagapuram Pudur, Salem - 636016.</p><p><i class="fas fa-phone"></i>Ph: 0427 244 6040</p></div>
+                        <div class="branch-card"><h4>Coimbatore</h4><p><i class="fas fa-map-marker-alt"></i>No.112, Tatabad, 11th St, Gandhipuram, Coimbatore, Tamil Nadu 641012.</p><p><i class="fas fa-phone"></i>Ph: 0422 498 3422</p></div>
+                        <div class="branch-card"><h4>Thanjavur</h4><p><i class="fas fa-map-marker-alt"></i>No.2841/1, Sabapathy Avenue, Srinivasam Pillai Road, Thanjavur - 613001</p><p><i class="fas fa-phone"></i>Ph: 04362236040</p></div>
+                        <div class="branch-card"><h4>Dindigul</h4><p><i class="fas fa-map-marker-alt"></i>No.H2/M-40H, RCC Building, RM Colony, 80 Feet Road, Dindigul - 624001</p><p><i class="fas fa-phone"></i>Ph: 0451 291 1500</p></div>
+                        <div class="branch-card"><h4>Attur</h4><p><i class="fas fa-map-marker-alt"></i>2nd floor, NS Jewellery, No.273, 623, Ranipet Main Rd, Attur - 636102</p><p><i class="fas fa-phone"></i>Ph: 04282 251 020</p></div>
+                        <div class="branch-card"><h4>Namakkal</h4><p><i class="fas fa-map-marker-alt"></i>No.56/2, SDS Complex, IInd Floor, Salem Road, Namakkal - 637001</p><p><i class="fas fa-phone"></i>Ph: 04286 275040</p></div>
+                        <div class="branch-card"><h4>Tiruchirappalli</h4><p><i class="fas fa-map-marker-alt"></i>No: 22/5, 1-A, Jeyam's Raj Crescent, First Floor, 11th Cross St, Ramachandrapuram, Tennur, Tiruchirappalli - 620017</p><p><i class="fas fa-phone"></i>Ph: 043 14512040</p></div>
+                        <div class="branch-card"><h4>Erode</h4><p><i class="fas fa-map-marker-alt"></i>(Full Address for Erode needed)</p><p><i class="fas fa-phone"></i>(Phone for Erode needed)</p></div>
+                        <div class="branch-card"><h4>Karur</h4><p><i class="fas fa-map-marker-alt"></i>(Full Address for Karur needed)</p><p><i class="fas fa-phone"></i>(Phone for Karur needed)</p></div>
+                        <div class="branch-card"><h4>Tiruppur</h4><p><i class="fas fa-map-marker-alt"></i>(Full Address for Tiruppur needed)</p><p><i class="fas fa-phone"></i>(Phone for Tiruppur needed)</p></div>
+                    </div>
+                </div>
+
+                <section id="enquiry-form-section" class="section">
+                    <div class="container">
+                        <div class="contact-form-container">
+                             <h3>Send Us a Message</h3>
+                            <form class="contact-form">
+                                <div class="form-group"><label class="form-label" for="name-footer">Name</label><input type="text" id="name-footer" class="form-control" placeholder="Your Name"></div>
+                                <div class="form-group"><label class="form-label" for="email-footer">Email</label><input type="email" id="email-footer" class="form-control" placeholder="Your Email"></div>
+                                <div class="form-group"><label class="form-label" for="phone-footer">Mobile</label><input type="tel" id="phone-footer" class="form-control" placeholder="Your Mobile"></div>
+                                <div class="form-group"><label class="form-label" for="message-footer">Message</label><textarea id="message-footer" class="form-control" placeholder="Your Message"></textarea></div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>DNC Chits</h3>
+                    <p>Providing exclusive financial solutions since 1990. Your premier partner in wealth creation and preservation.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-navigation">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="plans.html">Investment Plans</a></li>
+                        <li><a href="#">Client Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column footer-plans">
+                    <h3>Investment Plans</h3>
+                    <ul>
+                        <li><a href="#">Silver Portfolio</a></li>
+                        <li><a href="#">Gold Portfolio</a></li>
+                        <li><a href="#">Platinum Portfolio</a></li>
+                        <li><a href="#">Legacy Wealth Program</a></li>
+                        <li><a href="#">Global Opportunities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i><span>1 Financial Heights, Hyderabad</span></li>
+                        <li><i class="fas fa-phone"></i><span>+91 98765 43210</span></li>
+                        <li><i class="fas fa-envelope"></i><span>elite@dncchits.com</span></li>
+                        <li><i class="fas fa-clock"></i><span>Mon-Fri: 9:00 AM - 5:00 PM</span></li>
+                        <li><i class="fas fa-lock"></i><span>By Appointment Only</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© <span id="currentYear"></span> DNC Chits. All Rights Reserved. | Exclusive Financial Services</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.querySelector('i').classList.toggle('fa-bars');
+                hamburger.querySelector('i').classList.toggle('fa-times');
+            });
+        }
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

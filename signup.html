@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNC Chits | Sign Up</title>
+    <link href="[https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap)" rel="stylesheet">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+        <style>
+        :root {
+            --primary: #0A4699;
+            --primary-light: #1a5bbf;
+            --accent: #EDAA43;
+            --accent-light: #f8c97c;
+            --light: #f8f9fa;
+            --dark: #1a1d21;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --neumorphic-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8);
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 100%);
+            line-height: 1.6;
+            overflow: hidden; /* Prevent scrolling of the body */
+            height: 100vh; /* Ensure body takes full height for fixed header calculation */
+            display: flex;
+            flex-direction: column; /* Allows content and header to stack */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--neumorphic-shadow);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            color: var(--primary);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn:active { transform: translateY(2px); }
+        .btn-primary { background: linear-gradient(145deg, var(--accent), var(--accent-light)); color: white; box-shadow: 0 4px 15px rgba(237, 170, 67, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(237, 170, 67, 0.4); }
+
+        /* Header Styles - Copied directly from index.html */
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            background: rgba(255, 255, 255, 0.95); /* Translucent background */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); 
+            transition: var(--transition); 
+            backdrop-filter: blur(5px); /* Added blur for translucent effect */
+        }
+        .header-container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 0; 
+        }
+        .logo { 
+            display: flex; 
+            align-items: center; 
+        }
+        .logo h1 { 
+            font-size: 32px; 
+            font-weight: 700; 
+            color: var(--primary); 
+            letter-spacing: 1px; 
+        }
+        .logo span { 
+            color: var(--accent); 
+        }
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+        }
+        .nav-menu li { 
+            margin: 0 25px; 
+        }
+        .nav-menu a { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 500; 
+            font-size: 18px; 
+            position: relative; 
+            padding: 5px 0; 
+            color: var(--primary); 
+            letter-spacing: 1px; 
+            text-decoration: none; 
+        }
+        .nav-menu a:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background-color: var(--accent); 
+            transition: var(--transition); 
+        }
+        .nav-menu a:hover:after, .nav-menu a.active:after { 
+            width: 100%; 
+        }
+        .nav-buttons { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        .hamburger { 
+            display: none; /* Hide hamburger for these specific pages */
+            cursor: pointer; 
+            color: var(--primary); 
+            font-size: 24px; 
+        }
+        /* End Header Styles */
+
+        .auth-container {
+            flex-grow: 1; /* Allows it to take up remaining vertical space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #eef2f7 0%, #f7f9fc 100%);
+            padding: 20px;
+            /* No direct padding-top here; flex-grow handles spacing below header */
+        }
+
+        .auth-card-wrapper {
+            display: flex;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            min-height: 500px;
+            flex-grow: 1; 
+            max-height: 100%; 
+        }
+
+        .auth-image-panel {
+            flex: 1;
+            /* Placeholder for a trust-related image */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('[https://placehold.co/800x600/0A4699/FFFFFF?text=Build+Your+Financial+Future](https://placehold.co/800x600/0A4699/FFFFFF?text=Build+Your+Financial+Future)') no-repeat center center/cover;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 30px;
+            color: white;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .auth-image-panel h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .auth-image-panel p {
+            font-size: 16px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+         /* Removed .logo-overlay as the main header now serves the branding */
+
+        .auth-form-panel {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            animation: slideInRight 1s ease-out;
+        }
+
+        .auth-form-panel h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .auth-form-panel form {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .name-fields {
+            display: flex;
+            gap: 15px; /* Space between first and last name fields */
+            margin-bottom: 20px;
+        }
+
+        .name-fields .form-group {
+            flex: 1; /* Each takes equal space */
+            margin-bottom: 0; /* Remove bottom margin here as it's on the container */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: inset 1px 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 70, 153, 0.15), inset 1px 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(145deg, var(--accent), var(--accent-light));
+            color: white;
+            box-shadow: 0 6px 18px rgba(237, 170, 67, 0.4);
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(237, 170, 67, 0.5);
+        }
+        .submit-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(237, 170, 67, 0.3);
+        }
+
+        .social-login-separator {
+            margin: 30px 0;
+            color: var(--gray);
+            font-size: 14px;
+            position: relative;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .social-login-separator::before,
+        .social-login-separator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: var(--light-gray);
+        }
+
+        .social-login-separator::before {
+            left: 0;
+        }
+
+        .social-login-separator::after {
+            right: 0;
+        }
+
+        .social-login-buttons {
+            display: flex;
+            gap: 15px; /* Space between social login buttons */
+            width: 100%;
+            max-width: 320px;
+        }
+        .social-login-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1; /* Share space evenly */
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-gray);
+            color: var(--dark);
+            background: white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            gap: 10px;
+            position: relative; /* Needed for message overlay */
+        }
+
+        .social-login-btn:hover {
+            background-color: var(--light-gray);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .social-login-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-login-btn i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+        /* Specific colors for social icons */
+        .social-login-btn.google i { color: #DB4437; }
+        .social-login-btn.facebook i { color: #4267B2; }
+        .social-login-btn.twitter i { color: #1DA1F2; }
+
+
+        .switch-auth-text {
+            margin-top: 30px;
+            font-size: 15px;
+            color: var(--gray);
+        }
+
+        .switch-auth-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .switch-auth-text a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Message Overlay for Social Login */
+        .social-login-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 600;
+            text-align: center;
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .social-login-btn.showing-message .social-login-message {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Responsive adjustments for auth pages */
+        @media (max-width: 768px) {
+            .auth-card-wrapper {
+                flex-direction: column;
+                max-width: 450px;
+                min-height: auto;
+            }
+            .auth-image-panel {
+                height: 250px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+                animation: fadeIn 0.8s ease-out;
+            }
+            .auth-image-panel h3 {
+                font-size: 24px;
+            }
+            .auth-image-panel p {
+                font-size: 14px;
+            }
+            /* Header adjustments for smaller screens */
+            header {
+                position: fixed; 
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            }
+            .header-container {
+                flex-direction: row; 
+                justify-content: space-between; 
+                padding: 15px 20px; 
+            }
+            .logo h1 {
+                font-size: 28px; 
+                margin-bottom: 0;
+            }
+            .nav-menu { 
+                display: none; 
+            }
+            .nav-buttons {
+                margin-top: 0; 
+                gap: 10px; 
+            }
+            .btn { 
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+
+            .auth-form-panel {
+                padding: 30px;
+                animation: slideInRight 0.8s ease-out;
+            }
+            .auth-form-panel h2 {
+                font-size: 28px;
+            }
+            .form-control {
+                padding: 10px 12px;
+            }
+            .social-login-buttons {
+                flex-direction: column; /* Stack social buttons */
+            }
+            .social-login-btn {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+            .auth-container {
+                height: calc(100vh - 80px); 
+                padding-top: 0; 
+                overflow-y: auto; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-card-wrapper {
+                margin: 0 15px;
+            }
+            .auth-form-panel {
+                padding: 25px;
+            }
+            .auth-form-panel h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .social-login-separator {
+                margin: 20px 0;
+            }
+            .auth-image-panel {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Identical to index.html/plans.html -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo"><h1>DNC <span>Chits</span></h1></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn">Login</a>
+                <a href="signup.html" class="btn btn-primary active">Sign Up</a>
+            </div>
+            <div class="hamburger" style="display: none;"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-card-wrapper">
+            <div class="auth-image-panel">
+                <h3>Join Our Community <br> Start Your Financial Journey</h3>
+                <p>Register today for exclusive benefits and growth.</p>
+            </div>
+            <div class="auth-form-panel">
+                <h2>Create Your Account</h2>
+                <form action="#" method="POST">
+                    <div class="name-fields">
+                        <div class="form-group">
+                            <label class="form-label" for="first-name">First Name</label>
+                            <input type="text" id="first-name" class="form-control" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="last-name">Last Name</label>
+                            <input type="text" id="last-name" class="form-control" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" class="form-control" placeholder="your@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="signup-password">Password</label>
+                        <input type="password" id="signup-password" class="form-control" placeholder="Create a strong password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Register Account</button>
+                </form>
+                <p class="switch-auth-text">Already have an account? <a href="login.html">Login Here</a></p>
+                <div class="social-login-separator">OR</div>
+                <div class="social-login-buttons">
+                    <button type="button" class="social-login-btn google" id="google-signup-btn">
+                        <i class="fab fa-google"></i> Sign Up with Google
+                        <div class="social-login-message">Requires Backend Integration</div>
+                    </button>
+                    <!-- You can add Facebook/Twitter signup buttons here if needed -->
+                    <!-- <button type="button" class="social-login-btn facebook" id="facebook-signup-btn">
+                        <i class="fab fa-facebook-f"></i> Sign Up with Facebook
+                        <div class="social-login-message">Requires Backend Integration</div>
+                    </button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Adjust auth-container top padding dynamically based on header height
+        const header = document.getElementById('header');
+        const authContainer = document.querySelector('.auth-container');
+
+        function adjustAuthContainerLayout() {
+            if (header && authContainer) {
+                const headerHeight = header.offsetHeight;
+                authContainer.style.paddingTop = `${headerHeight + 20}px`; // Add some extra space for visual separation
+                authContainer.style.height = `calc(100vh - ${headerHeight}px)`; // Adjust height to fill remaining viewport
+                authContainer.style.overflowY = 'auto'; // Allow scrolling within auth-container if content exceeds height
+            }
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', adjustAuthContainerLayout);
+        window.addEventListener('resize', adjustAuthContainerLayout);
+
+        // Social Signup Button Functionality (Placeholder)
+        const googleSignupBtn = document.getElementById('google-signup-btn');
+        if (googleSignupBtn) {
+            googleSignupBtn.addEventListener('click', () => {
+                const messageDiv = googleSignupBtn.querySelector('.social-login-message');
+                if (messageDiv) {
+                    messageDiv.classList.add('showing-message');
+                    setTimeout(() => {
+                        messageDiv.classList.remove('showing-message');
+                    }, 3000); // Hide message after 3 seconds
+                }
+            });
+        }
+    </script>
+</body>
+</html>
