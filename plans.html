@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNC Chits | Premium Plans</title>
+    <title>DNC Chits | Premium Investment Plans</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,8 +21,8 @@
             --bronze: #CD7F32;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --neumorphic-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8);
-            --border-radius: 16px;
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
         }
 
         * {
@@ -32,7 +32,7 @@
         }
 
         body {
-            font-family: 'Times New Roman', serif;
+            font-family: 'Montserrat', sans-serif;
             color: var(--dark);
             background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 100%);
             line-height: 1.6;
@@ -67,14 +67,10 @@
             letter-spacing: 1.5px;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--neumorphic-shadow);
-            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            box-shadow: var(--shadow);
+            background: white;
             color: var(--primary);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .btn:active {
-            transform: translateY(2px);
+            text-decoration: none;
         }
 
         .btn-primary {
@@ -88,6 +84,17 @@
             box-shadow: 0 8px 20px rgba(237, 170, 67, 0.4);
         }
 
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         .section {
             padding: 100px 0;
         }
@@ -99,16 +106,17 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .logo {
@@ -129,20 +137,23 @@
 
         .nav-menu {
             display: flex;
+            list-style: none;
         }
 
         .nav-menu li {
-            margin: 0 25px;
+            margin: 0 20px;
         }
 
         .nav-menu a {
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 16px;
             position: relative;
             padding: 5px 0;
             color: var(--primary);
             letter-spacing: 1px;
+            text-decoration: none;
+            transition: var(--transition);
         }
 
         .nav-menu a:after {
@@ -174,25 +185,13 @@
             font-size: 24px;
         }
 
-        /* Hero Section */
         .hero-plans {
-            background: linear-gradient(rgba(10, 70, 153, 0.7), rgba(10, 70, 153, 0.7)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(10, 70, 153, 0.85), rgba(10, 70, 153, 0.85)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover no-repeat;
             color: white;
-            padding: 220px 0 120px;
+            padding: 180px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero-plans::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23edaa43' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
         }
 
         .hero-plans-content {
@@ -203,7 +202,7 @@
         }
 
         .hero-plans h1 {
-            font-size: 64px;
+            font-size: 56px;
             line-height: 1.1;
             margin-bottom: 25px;
             letter-spacing: 1px;
@@ -211,16 +210,11 @@
         }
 
         .hero-plans p {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: 'Times New Roman', serif;
             opacity: 0.9;
         }
 
-        /* Plans Section */
         .plans-section {
             position: relative;
             padding: 100px 0;
@@ -255,20 +249,44 @@
             color: var(--gray);
             max-width: 700px;
             margin: 30px auto 0;
-            font-size: 20px;
-            font-style: italic;
+            font-size: 18px;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
         }
 
         .plans-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-bottom: 80px;
         }
 
         .plan-card {
             background: white;
             border-radius: var(--border-radius);
-            padding: 35px 30px;
+            padding: 30px;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
@@ -282,7 +300,7 @@
 
         .plan-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-hover);
             border-color: rgba(237, 170, 67, 0.3);
         }
 
@@ -337,7 +355,7 @@
             font-size: 32px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 25px;
+            margin: 20px 0;
             position: relative;
             display: inline-block;
             padding: 0 20px;
@@ -381,7 +399,7 @@
         }
 
         .detail-value {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--primary);
             text-align: right;
@@ -407,30 +425,89 @@
             transform: translateY(-3px);
         }
 
-         footer {
-            background: #f8f9fc; /* Match --light from WHAT1.html for consistency, or var(--dark) if preferred */
-            color: var(--dark);
-            padding: 80px 0 30px; /* Adjusted padding */
+        .terms-section {
+            background: white;
+            padding: 80px 0;
             border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
         }
 
-        .footer-grid { /* This class is from WHAT1.html */
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terms-content {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .terms-content h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            font-size: 22px;
+        }
+
+        .terms-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .terms-content ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .terms-note {
+            background: rgba(237, 170, 67, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .terms-note p {
+            margin-bottom: 0;
+            color: var(--dark);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 50px;
         }
 
-        .footer-column h3 { /* From WHAT1.html */
+        .footer-column h3 {
             font-size: 22px;
             margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
-            color: var(--primary);
-            font-family: 'Playfair Display', serif; /* Match other headings */
+            color: white;
         }
 
-        .footer-column h3:after { /* From WHAT1.html */
+        .footer-column h3:after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -439,80 +516,61 @@
             height: 3px;
             background: var(--accent);
         }
-        .footer-column p { /* General paragraph style in footer column */
-            color: var(--gray);
-            font-size: 15px;
-            line-height: 1.7;
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
             margin-bottom: 15px;
         }
 
-        .footer-column ul { /* From WHAT1.html */
-            list-style: none; /* Removed default bullets */
-            padding-left: 0; /* Remove default padding */
-        }
-
-        .footer-column ul li { /* From WHAT1.html */
-            margin-bottom: 15px;
-        }
-
-        .footer-column ul li a, .footer-column ul li span { /* Style for links and non-link text items */
-            color: var(--gray);
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
             transition: var(--transition);
-            display: inline-block; /* Or flex for icon alignment */
-            font-family: 'Times New Roman', serif;
+            display: inline-block;
             text-decoration: none;
-            font-size: 15px;
-        }
-        .footer-column ul li i { /* Icon styling in footer lists */
-            margin-right: 10px;
-            color: var(--accent); /* Accent color for icons */
-            min-width: 18px; /* Ensure space for icon */
         }
 
-        /* Specific hover for navigation type links in footer */
-        .footer-column.footer-navigation ul li a:hover,
-        .footer-column.footer-plans ul li a:hover {
+        .footer-navigation li a:hover,
+        .footer-plans li a:hover {
             color: var(--accent);
-            padding-left: 5px;
+            transform: translateX(5px);
         }
-        
-        .social-links { /* From WHAT1.html */
+
+        .social-links {
             display: flex;
             margin-top: 25px;
             gap: 15px;
         }
 
-        .social-links a { 
+        .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: white;
-            color: var(--primary);
-            box-shadow: var(--neumorphic-shadow);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
-            font-size: 20px;
+            text-decoration: none;
         }
 
-        .social-links a:hover { 
-            background: var(--primary);
-            color: white;
+        .social-links a:hover {
+            background: var(--accent);
             transform: scale(1.1);
         }
 
-        .footer-bottom { 
-            border-top: 1px solid var(--light-gray);
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 30px;
             text-align: center;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 16px;
         }
-         .footer-bottom p {
-             margin-bottom: 0;
-        }
-        /* Responsive Design */
+
         @media (max-width: 992px) {
             .hero-plans h1 {
                 font-size: 48px;
@@ -554,7 +612,7 @@
             }
             
             .hero-plans {
-                padding: 180px 0 80px;
+                padding: 150px 0 80px;
             }
             
             .hero-plans h1 {
@@ -563,6 +621,10 @@
             
             .hero-plans p {
                 font-size: 18px;
+            }
+            
+            .terms-content {
+                padding: 20px;
             }
         }
     </style>
@@ -578,11 +640,12 @@
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="plans.html" class="active">Plans</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
             
             <div class="nav-buttons">
-                <a href="login.html" class="btn">Login</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
                 <a href="signup.html" class="btn btn-primary">Sign Up</a>
             </div>
             
@@ -596,8 +659,8 @@
     <section class="hero-plans">
         <div class="container">
             <div class="hero-plans-content">
-                <h1>Premium Chit Fund Plans</h1>
-                <p>Select from our exclusive range of investment opportunities designed for financial growth and security</p>
+                <h1>Premium Investment Plans</h1>
+                <p>Select from our exclusive range of chit fund schemes designed for financial growth and security</p>
             </div>
         </div>
     </section>
@@ -606,13 +669,20 @@
     <section class="plans-section">
         <div class="container">
             <div class="section-header">
-                <h2>Our Royal Investment Plans</h2>
+                <h2>Our Investment Plans</h2>
                 <p>Choose from our premium selection of chit fund schemes tailored to your financial goals</p>
+            </div>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All Plans</button>
+                <button class="filter-btn" data-filter="short">Short Term</button>
+                <button class="filter-btn" data-filter="medium">Medium Term</button>
+                <button class="filter-btn" data-filter="long">Long Term</button>
             </div>
             
             <div class="plans-grid">
                 <!-- Plan 1 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="short">
                     <div class="plan-badge gold-badge">A+</div>
                     <div class="plan-value">₹1,50,000</div>
                     <div class="plan-details">
@@ -621,15 +691,19 @@
                             <span class="detail-value">20 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹7,500</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹1,50,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 2 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="medium">
                     <div class="plan-badge silver-badge">A</div>
                     <div class="plan-value">₹1,50,000</div>
                     <div class="plan-details">
@@ -638,15 +712,19 @@
                             <span class="detail-value">30 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹5,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹1,50,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 3 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="short">
                     <div class="plan-badge gold-badge">A+</div>
                     <div class="plan-value">₹2,00,000</div>
                     <div class="plan-details">
@@ -655,15 +733,19 @@
                             <span class="detail-value">20 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹10,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹2,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 4 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="medium">
                     <div class="plan-badge bronze-badge">B+</div>
                     <div class="plan-value">₹2,00,000</div>
                     <div class="plan-details">
@@ -672,15 +754,19 @@
                             <span class="detail-value">25 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹8,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹2,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 5 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="medium">
                     <div class="plan-badge gold-badge">A+</div>
                     <div class="plan-value">₹2,50,000</div>
                     <div class="plan-details">
@@ -689,15 +775,19 @@
                             <span class="detail-value">25 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹10,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹2,50,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 6 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="short">
                     <div class="plan-badge silver-badge">A</div>
                     <div class="plan-value">₹3,00,000</div>
                     <div class="plan-details">
@@ -706,15 +796,19 @@
                             <span class="detail-value">20 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹15,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹3,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 7 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="medium">
                     <div class="plan-badge bronze-badge">B+</div>
                     <div class="plan-value">₹3,00,000</div>
                     <div class="plan-details">
@@ -723,15 +817,19 @@
                             <span class="detail-value">25 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹12,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹3,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 8 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="long">
                     <div class="plan-badge silver-badge">A</div>
                     <div class="plan-value">₹3,00,000</div>
                     <div class="plan-details">
@@ -740,15 +838,19 @@
                             <span class="detail-value">30 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹10,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹3,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 9 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="short">
                     <div class="plan-badge gold-badge">A+</div>
                     <div class="plan-value">₹4,00,000</div>
                     <div class="plan-details">
@@ -757,15 +859,19 @@
                             <span class="detail-value">20 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹20,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹4,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 10 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="short">
                     <div class="plan-badge silver-badge">A</div>
                     <div class="plan-value">₹5,00,000</div>
                     <div class="plan-details">
@@ -774,15 +880,19 @@
                             <span class="detail-value">20 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹25,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹5,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 11 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="medium">
                     <div class="plan-badge gold-badge">A+</div>
                     <div class="plan-value">₹5,00,000</div>
                     <div class="plan-details">
@@ -791,15 +901,19 @@
                             <span class="detail-value">25 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹20,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹5,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
                 
                 <!-- Plan 12 -->
-                <div class="plan-card">
+                <div class="plan-card" data-duration="long">
                     <div class="plan-badge bronze-badge">B+</div>
                     <div class="plan-value">₹5,00,000</div>
                     <div class="plan-details">
@@ -808,251 +922,198 @@
                             <span class="detail-value">40 Months</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
+                            <span class="detail-label">Monthly Payment</span>
                             <span class="detail-value">₹12,500</span>
                         </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 13 -->
-                <div class="plan-card">
-                    <div class="plan-badge gold-badge">A+</div>
-                    <div class="plan-value">₹6,00,000</div>
-                    <div class="plan-details">
                         <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">30 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹20,000</span>
+                            <span class="detail-label">Total Value</span>
+                            <span class="detail-value">₹5,00,000</span>
                         </div>
                     </div>
                     <button class="plan-cta">Join This Group</button>
                 </div>
-                
-                <!-- Plan 14 -->
-                <div class="plan-card">
-                    <div class="plan-badge silver-badge">A</div>
-                    <div class="plan-value">₹10,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">20 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹50,000</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 15 -->
-                <div class="plan-card">
-                    <div class="plan-badge gold-badge">A+</div>
-                    <div class="plan-value">₹10,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">25 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹40,000</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 16 -->
-                <div class="plan-card">
-                    <div class="plan-badge bronze-badge">B+</div>
-                    <div class="plan-value">₹20,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">20 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹1,00,000</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 17 -->
-                <div class="plan-card">
-                    <div class="plan-badge silver-badge">A</div>
-                    <div class="plan-value">₹20,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">40 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹50,000</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 18 -->
-                <div class="plan-card">
-                    <div class="plan-badge gold-badge">A+</div>
-                    <div class="plan-value">₹25,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">20 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹1,25,000</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 19 -->
-                <div class="plan-card">
-                    <div class="plan-badge silver-badge">A</div>
-                    <div class="plan-value">₹25,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">25 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹1,00,000</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 20 -->
-                <div class="plan-card">
-                    <div class="plan-badge bronze-badge">B+</div>
-                    <div class="plan-value">₹25,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">40 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹62,500</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-                <!-- Plan 21 -->
-                <div class="plan-card">
-                    <div class="plan-badge gold-badge">A+</div>
-                    <div class="plan-value">₹25,00,000</div>
-                    <div class="plan-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Duration</span>
-                            <span class="detail-value">50 Months</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Monthly</span>
-                            <span class="detail-value">₹50,000</span>
-                        </div>
-                    </div>
-                    <button class="plan-cta">Join This Group</button>
-                </div>
-                
-               </section>
+            </div>
 
- <footer>
+            <!-- Terms and Conditions Section -->
+            <div class="terms-section">
+                <div class="section-header">
+                    <h2>Terms and Conditions</h2>
+                    <p>Please read our terms and conditions carefully before enrolling in any chit fund scheme</p>
+                </div>
+                
+                <div class="terms-container">
+                    <div class="terms-content">
+                        <h3>1. GENERAL TERMS AND CONDITIONS</h3>
+                        <p>These Terms and Conditions govern the membership, participation, and services offered by DNC Chits Pvt. Ltd. ("DNC Chits"), including chit fund subscriptions and the use of the DNC Chits Online Payment Gateway Service available at https://www.dncchits.com. By enrolling in any chit scheme or making payments through the website, the User is deemed to have read, understood, and accepted these Terms and Conditions.</p>
+                        
+                        <p>Users must follow the rules, regulations, and legal directions issued by DNC Chits.</p>
+                        
+                        <p>DNC Chits reserves the right to amend or update these terms at any time.</p>
+                        
+                        <p>If any part of these terms is unenforceable, the rest shall continue in force.</p>
+                        
+                        <h3>2. PRIVACY POLICY</h3>
+                        <h4>2.1 Our Commitment</h4>
+                        <p>DNC Chits respects and protects your privacy. Personal information is never shared without your consent, except as required by law.</p>
+                        
+                        <h4>2.2 Collection of Data</h4>
+                        <p>We do not collect unique personal details (e.g., name, email, gender, age) unless you provide them.</p>
+                        <p>Voluntary information may be used for communication, updates, or improving services.</p>
+                        
+                        <h4>2.3 Disclosure of Data</h4>
+                        <p>Your information may be shared only:</p>
+                        <ul>
+                            <li>To comply with legal requirements (court orders, search warrants, etc.).</li>
+                            <li>If you violate these terms or DNC Chits policies.</li>
+                            <li>To protect the rights, property, or safety of DNC Chits, its Users, or the public.</li>
+                            <li>To prevent fraud or security threats.</li>
+                        </ul>
+                        
+                        <h3>3. TERMS AND CONDITIONS FOR ONLINE PAYMENTS</h3>
+                        <h4>3.1 Registration</h4>
+                        <p>Users must register before using the Online Payment Gateway.</p>
+                        
+                        <h4>3.2 Payment Information</h4>
+                        <p>You are responsible for providing correct debit card, UPI, or bank details.</p>
+                        <p>By making payments, you confirm you are legally authorized to use the selected method.</p>
+                        
+                        <h4>3.3 Transactions</h4>
+                        <p>Records maintained by DNC Chits or its Payment Providers will be treated as final proof.</p>
+                        <p>If payment is debited but confirmation not received, please avoid duplicate payments and contact support.</p>
+                        
+                        <h4>3.4 Refunds & Chargebacks</h4>
+                        <p>Refunds for duplicate or fraudulent transactions must be raised directly with DNC Chits.</p>
+                        <p>If applicable, refunds will be processed only by DNC Chits.</p>
+                        <p>No cancellations or refunds are allowed once payment is successfully processed, except in cases of error.</p>
+                        
+                        <h3>4. Limitation of Liability</h3>
+                        <p>The Online Payment Service is provided for convenience only.</p>
+                        <p>DNC Chits is not responsible for delays, interruptions, or errors in the Payment Gateway.</p>
+                        <p>Users agree to indemnify DNC Chits from any claims, losses, or damages arising from misuse of the service.</p>
+                        <p>DNC Chits shall not be liable for issues beyond its reasonable control.</p>
+                        
+                        <h3>5. PAYMENT GATEWAY DISCLAIMER</h3>
+                        <p>The Payment Gateway is offered solely to facilitate chit subscription payments.</p>
+                        <p>No guarantees are provided regarding uninterrupted or error-free operation.</p>
+                        <p>Use of the Payment Gateway is entirely at the User's own risk.</p>
+                        
+                        <div class="terms-note">
+                            <p><strong>Note:</strong> By enrolling in any chit scheme or making payments through our website, you agree to abide by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
                     <h3>DNC Chits</h3>
-                    <p>Providing exclusive financial solutions since 1990. Your premier partner in wealth creation and preservation.</p>
+                    <p>Providing trusted financial solutions since 1990. Your partner in achieving financial security through reliable chit fund services.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column footer-navigation">
-                    <h3>Navigation</h3>
+                    <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="plans.html">Investment Plans</a></li>
-                        <li><a href="#">Client Services</a></li>
+                        <li><a href="#">How Chits Work</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column footer-plans">
-                    <h3>Investment Plans</h3>
+                    <h3>Our Plans</h3>
                     <ul>
-                        <li><a href="#">Silver Portfolio</a></li>
-                        <li><a href="#">Gold Portfolio</a></li>
-                        <li><a href="#">Platinum Portfolio</a></li>
-                        <li><a href="#">Legacy Wealth Program</a></li>
-                        <li><a href="#">Global Opportunities</a></li>
+                        <li><a href="#">Silver Chit Plan</a></li>
+                        <li><a href="#">Gold Chit Plan</a></li>
+                        <li><a href="#">Platinum Chit Plan</a></li>
+                        <li><a href="#">Diamond Chit Plan</a></li>
+                        <li><a href="#">Custom Plans</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Contact Information</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i><span>1 Financial Heights, Hyderabad</span></li>
-                        <li><i class="fas fa-phone"></i><span>+91 98765 43210</span></li>
-                        <li><i class="fas fa-envelope"></i><span>elite@dncchits.com</span></li>
-                        <li><i class="fas fa-clock"></i><span>Mon-Fri: 9:00 AM - 5:00 PM</span></li>
-                        <li><i class="fas fa-lock"></i><span>By Appointment Only</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@dncchits.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9:30 AM - 6:00 PM</li>
+                        <li><i class="fas fa-lock"></i> Secure & Registered</li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© <span id="currentYear"></span> DNC Chits. All Rights Reserved. | Exclusive Financial Services</p>
+                <p>&copy; 2023 DNC Chits. All Rights Reserved. | Registered with Regulatory Authority</p>
             </div>
         </div>
     </footer>
 
-
     <script>
-        // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars'></i>';
         });
         
-        // Close menu when clicking a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Sticky header
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
                 header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
             }
         });
         
-        // Animation for plan cards
+        const filterButtons = document.querySelectorAll('.filter-btn');
         const planCards = document.querySelectorAll('.plan-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                planCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'flex';
+                    } else {
+                        const duration = card.getAttribute('data-duration');
+                        if (duration === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
         
         const animateCards = () => {
             planCards.forEach((card, index) => {
@@ -1063,14 +1124,12 @@
             });
         };
         
-        // Set initial state
         planCards.forEach(card => {
             card.style.opacity = 0;
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease';
         });
         
-        // Trigger animations
         window.addEventListener('load', animateCards);
     </script>
 </body>
