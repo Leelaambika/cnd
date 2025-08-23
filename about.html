@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DNC Chits | Trusted Financial Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A4699;
+            --primary-light: #1a5bbf;
+            --accent: #EDAA43;
+            --accent-light: #f8c97c;
+            --light: #f8f9fa;
+            --dark: #1a1d21;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: #f7f9fc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--accent), var(--accent-light));
+            color: white;
+            box-shadow: 0 4px 15px rgba(237, 170, 67, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(237, 170, 67, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 18px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin: 0 20px;
+        }
+
+        .nav-menu a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            padding: 5px 0;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .about-hero {
+            background: linear-gradient(120deg, rgba(10, 70, 153, 0.9) 0%, rgba(26, 91, 191, 0.85) 100%), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
+            color: white;
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .about-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-hero h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .about-hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb span {
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .about-content {
+            background-color: white;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--gray);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .mission-vision {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            position: relative;
+        }
+
+        .mv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .mv-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(10, 70, 153, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary);
+            font-size: 32px;
+            transition: var(--transition);
+        }
+
+        .mv-card:hover .mv-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .mv-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .mv-card p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background-color: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background-color: white;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-section {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .team-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-name {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .team-role {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .team-desc {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: white;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .footer-navigation li a:hover,
+        .footer-plans li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 25px;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+        }
+
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 40px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.4s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 30px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-header h2 {
+                font-size: 32px;
+            }
+            
+            .about-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .about-hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>DNC <span>Chits</span></h1>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container about-hero-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="about.html">About Us</a>
+            </div>
+            <h1>About DNC Chits</h1>
+            <p>With over three decades of experience, DNC Chits has been a trusted name in financial services, helping thousands of customers achieve their financial goals through secure chit fund schemes.</p>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="section about-content">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Established in 1990, DNC Chits began with a simple mission: to provide reliable and accessible financial solutions to individuals and businesses. What started as a small local operation has grown into a respected financial institution serving thousands of customers across the region.</p>
+                <p>Our journey has been guided by principles of transparency, integrity, and customer-centric service. We believe in building long-term relationships with our clients, understanding their unique financial needs, and providing tailored solutions that help them achieve their goals.</p>
+                <p>Over the years, we've adapted to changing economic landscapes while maintaining our core values. Today, we combine traditional financial wisdom with modern practices to offer secure and rewarding chit fund schemes.</p>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            </div>
+            <div class="about-image">
+                <img src="chair.avif" alt="DNC Chits Office">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Section -->
+    <section class="section mission-vision">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Mission & Vision</h2>
+                <p>Guiding principles that define who we are and what we strive for</p>
+            </div>
+            
+            <div class="mv-container">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide secure, reliable, and accessible financial solutions through chit funds that empower our customers to achieve their financial goals while maintaining the highest standards of integrity and service.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted chit fund company in the region, recognized for our customer-centric approach, innovative financial solutions, and unwavering commitment to ethical practices.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>Trust, transparency, and customer satisfaction form the foundation of everything we do. We believe in building lasting relationships based on mutual respect and financial empowerment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Journey</h2>
+                <p>Milestones that shaped our growth and success</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1990</div>
+                        <h3>Foundation</h3>
+                        <p>DNC Chits was established with a vision to provide ethical chit fund services to the local community.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1998</div>
+                        <h3>Expansion</h3>
+                        <p>Opened three new branches to serve customers across the region, expanding our reach and services.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2005</div>
+                        <h3>Technology Adoption</h3>
+                        <p>Implemented digital systems for improved transparency and customer service efficiency.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2012</div>
+                        <h3>10,000 Customers</h3>
+                        <p>Celebrated serving over 10,000 satisfied customers with our chit fund schemes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020</div>
+                        <h3>Digital Transformation</h3>
+                        <p>Launched online portal and mobile app for convenient account access and management.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3>Present Day</h3>
+                        <p>Continuing to serve with integrity while innovating for the future of financial services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Leadership Team</h2>
+                <p>Meet the experienced professionals guiding DNC Chits</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Team Member">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Rajesh Kumar</h3>
+                        <p class="team-role">Founder & Chairman</p>
+                        <p class="team-desc">With over 30 years of experience in the financial sector, Rajesh founded DNC Chits with a vision to create a trustworthy chit fund company.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Team Member">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Priya Sharma</h3>
+                        <p class="team-role">Managing Director</p>
+                        <p class="team-desc">Priya brings 20 years of financial management experience and leads the company's strategic direction and operations.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Team Member">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Vikram Singh</h3>
+                        <p class="team-role">Operations Head</p>
+                        <p class="team-desc">Vikram oversees all daily operations ensuring smooth functioning and customer satisfaction across all branches.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1614289371518-722f2615943d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Team Member">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Anjali Patel</h3>
+                        <p class="team-role">Customer Relations</p>
+                        <p class="team-desc">Anjali leads our customer service team, ensuring every client receives personalized attention and support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>DNC Chits</h3>
+                    <p>Providing trusted financial solutions since 1990. Your partner in achieving financial security through reliable chit fund services.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-navigation">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="plans.html">Investment Plans</a></li>
+                        <li><a href="#">How Chits Work</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column footer-plans">
+                    <h3>Our Plans</h3>
+                    <ul>
+                        <li><a href="#">Silver Chit Plan</a></li>
+                        <li><a href="#">Gold Chit Plan</a></li>
+                        <li><a href="#">Platinum Chit Plan</a></li>
+                        <li><a href="#">Diamond Chit Plan</a></li>
+                        <li><a href="#">Custom Plans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@dncchits.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9:30 AM - 6:00 PM</li>
+                        <li><i class="fas fa-lock"></i> Secure & Registered</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 DNC Chits. All Rights Reserved. | Registered with Regulatory Authority</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            }
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+    </script>
+</body>
+</html>
