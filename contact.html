@@ -19,7 +19,9 @@
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --neumorphic-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -8px -8px 16px rgba(255, 255, 255, 0.8);
+            --neumorphic-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.8);
             --border-radius: 16px;
+            --section-spacing: 100px;
         }
 
         * {
@@ -29,7 +31,7 @@
         }
 
         body {
-            font-family: 'Times New Roman', serif;
+            font-family: 'Montserrat', sans-serif;
             color: var(--dark);
             background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 100%);
             line-height: 1.6;
@@ -71,36 +73,153 @@
         }
 
         .btn:active { transform: translateY(2px); }
-        .btn-primary { background: linear-gradient(145deg, var(--accent), var(--accent-light)); color: white; box-shadow: 0 4px 15px rgba(237, 170, 67, 0.3); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(237, 170, 67, 0.4); }
+        .btn-primary { 
+            background: linear-gradient(145deg, var(--accent), var(--accent-light)); 
+            color: white; 
+            box-shadow: 0 4px 15px rgba(237, 170, 67, 0.3); 
+        }
+        .btn-primary:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(237, 170, 67, 0.4); 
+        }
 
-        .section { padding: 100px 0; }
-        #contact-section { background: #f8f9fc; padding-top: 120px; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 42px; margin-bottom: 20px; color: var(--primary); position: relative; display: inline-block; }
-        .section-header h2:after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: var(--accent); }
-        .section-header p { color: var(--gray); max-width: 700px; margin: 30px auto 0; font-size: 20px; font-style: italic; }
+        .section { 
+            padding: var(--section-spacing) 0; 
+        }
+        
+        #contact-section { 
+            background: #f8f9fc; 
+            padding-top: 140px; 
+        }
+        
+        .section-header { 
+            text-align: center; 
+            margin-bottom: 60px; 
+        }
+        
+        .section-header h2 { 
+            font-size: 42px; 
+            margin-bottom: 20px; 
+            color: var(--primary); 
+            position: relative; 
+            display: inline-block; 
+        }
+        
+        .section-header h2:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -15px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 80px; 
+            height: 3px; 
+            background: var(--accent); 
+        }
+        
+        .section-header p { 
+            color: var(--gray); 
+            max-width: 700px; 
+            margin: 30px auto 0; 
+            font-size: 20px; 
+            font-style: italic; 
+        }
 
-        /* Header Styles */
-        header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.95); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); transition: var(--transition); }
-        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
-        .logo { display: flex; align-items: center; }
-        .logo h1 { font-size: 32px; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
-        .logo span { color: var(--accent); }
-        .nav-menu { display: flex; list-style: none; }
-        .nav-menu li { margin: 0 25px; }
-        .nav-menu a { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 18px; position: relative; padding: 5px 0; color: var(--primary); letter-spacing: 1px; text-decoration: none; }
-        .nav-menu a:after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--accent); transition: var(--transition); }
-        .nav-menu a:hover:after, .nav-menu a.active:after { width: 100%; }
-        .nav-buttons { display: flex; align-items: center; gap: 15px; }
-        .hamburger { display: none; cursor: pointer; color: var(--primary); font-size: 24px; }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
 
-        /* NEW: Main Office Info & Map Section */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin: 0 20px;
+        }
+
+        .nav-menu a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            padding: 5px 0;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        /* Main Office Section - Updated Layout */
         .main-office-section {
             display: flex;
-            flex-direction: column; /* Stacks info and map vertically by default */
-            gap: 40px; /* Space between details and map */
-            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .office-info-container {
+            flex: 1;
+            min-width: 300px;
         }
 
         .office-details-wrapper {
@@ -114,7 +233,14 @@
             border-radius: var(--border-radius);
             padding: 30px;
             box-shadow: var(--shadow);
-            border-left: 5px solid var(--primary); /* A nice border */
+            border-left: 5px solid var(--primary);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .office-info-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .office-info-block h3 {
@@ -141,83 +267,281 @@
             margin-top: 2px;
         }
 
-        .office-info-block .note {
-            font-style: italic;
-            font-size: 14px;
-            margin-top: 15px;
-            color: var(--primary);
-        }
-
-        .main-interactive-map-container {
+        .map-container {
+            flex: 2;
+            min-width: 300px;
             background: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             overflow: hidden;
-            padding: 15px; /* Padding inside the map container */
+            padding: 15px;
         }
 
-        .main-interactive-map-container iframe {
+        .map-container iframe {
             width: 100%;
-            height: 500px; /* Adjust height as needed */
+            height: 500px;
             border: none;
             border-radius: calc(var(--border-radius) - 10px);
         }
-        /* END NEW: Main Office Info & Map Section */
 
+        .image-hours-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 60px 0;
+            width: 100%;
+        }
 
-        /* Regional Maps Section (Interactive) */
-        .regional-map-area { margin-bottom: 60px; }
-        .region-map-header { text-align: center; margin-bottom: 30px; }
-        .region-map-header h3 { font-size: 32px; color: var(--primary); position: relative; display: inline-block; padding-bottom: 10px; }
-        .region-map-header h3:after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 70px; height: 3px; background: var(--accent); }
-        .interactive-map-container { background: white; border-radius: var(--border-radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 30px; padding: 15px; }
-        .interactive-map-container iframe { width: 100%; height: 450px; border: none; border-radius: calc(var(--border-radius) - 10px); }
+        .office-image-container {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .office-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .office-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .office-hours-container {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .office-hours-container h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            text-align: center;
+        }
+
+        .office-hours-list {
+            list-style: none;
+        }
+
+        .office-hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 16px;
+        }
+
+        .office-hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .office-hours-list .day {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .office-hours-list .time {
+            color: var(--gray);
+        }
+
+        .office-note {
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 20px;
+            color: var(--primary);
+            background-color: rgba(237, 170, 67, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .regional-map-area { 
+            margin-bottom: 80px; 
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
         
-        /* Branch Details Grid (Below Interactive Maps) */
-        .branch-details-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; padding: 30px; background: #f0f3f7; border-radius: var(--border-radius); box-shadow: var(--shadow); }
-        .branch-card { background: white; border-radius: var(--border-radius); padding: 25px; box-shadow: var(--shadow); transition: var(--transition); border-left: 5px solid var(--accent); }
-        .branch-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12); }
-        .branch-card h4 { color: var(--primary); margin-bottom: 12px; font-size: 19px; }
-        .branch-card p { color: var(--gray); margin-bottom: 10px; font-size: 14px; display: flex; align-items: flex-start; line-height: 1.5; }
-        .branch-card i.fa-map-marker-alt, .branch-card i.fa-phone { margin-right: 10px; color: var(--accent); min-width: 18px; margin-top: 3px; }
-
-        /* Enquiry Form Section (Moved Near Footer) */
-        #enquiry-form-section { background-color: var(--light); padding-top: 60px; padding-bottom: 80px; }
-        #enquiry-form-section .section-header { margin-bottom: 40px; }
-        #enquiry-form-section .contact-form-container { max-width: 700px; margin: 0 auto; background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow); }
-        #enquiry-form-section .contact-form-container h3 { font-size: 22px; color: var(--primary); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); text-align: center;}
-        .form-group { margin-bottom: 20px; } /* Increased margin for form */
-        .form-label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary); }
-        .form-control { width: 100%; padding: 14px; border: 1px solid var(--light-gray); border-radius: 8px; font-family: 'Times New Roman', serif; font-size: 16px; transition: var(--transition); }
-        .form-control:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(10, 70, 153, 0.1); }
-        textarea.form-control { min-height: 120px; resize: vertical; }
-
-
+        .region-map-header { 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
         
+        .region-map-header h3 { 
+            font-size: 32px; 
+            color: var(--primary); 
+            position: relative; 
+            display: inline-block; 
+            padding-bottom: 10px; 
+        }
+        
+        .region-map-header h3:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 70px; 
+            height: 3px; 
+            background: var(--accent); 
+        }
+        
+        .interactive-map-container { 
+            background: #f8f9fc; 
+            border-radius: var(--border-radius); 
+            box-shadow: var(--shadow); 
+            overflow: hidden; 
+            margin-bottom: 40px; 
+            padding: 15px; 
+        }
+        
+        .interactive-map-container iframe { 
+            width: 100%; 
+            height: 450px; 
+            border: none; 
+            border-radius: calc(var(--border-radius) - 10px); 
+        }
+        
+        .branch-details-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+        
+        .branch-card { 
+            background: white; 
+            border-radius: var(--border-radius); 
+            padding: 25px; 
+            box-shadow: var(--shadow); 
+            transition: var(--transition); 
+            border-left: 5px solid var(--accent); 
+        }
+        
+        .branch-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12); 
+        }
+        
+        .branch-card h4 { 
+            color: var(--primary); 
+            margin-bottom: 12px; 
+            font-size: 19px; 
+        }
+        
+        .branch-card p { 
+            color: var(--gray); 
+            margin-bottom: 10px; 
+            font-size: 14px; 
+            display: flex; 
+            align-items: flex-start; 
+            line-height: 1.5; 
+        }
+        
+        .branch-card i { 
+            margin-right: 10px; 
+            color: var(--accent); 
+            min-width: 18px; 
+            margin-top: 3px; 
+        }
+
+        #enquiry-form-section { 
+            background-color: var(--light); 
+            padding: 80px 0; 
+        }
+        
+        #enquiry-form-section .section-header { 
+            margin-bottom: 40px; 
+        }
+        
+        .contact-form-container { 
+            max-width: 700px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: var(--border-radius); 
+            padding: 40px; 
+            box-shadow: var(--shadow); 
+        }
+        
+        .contact-form-container h3 { 
+            font-size: 28px; 
+            color: var(--primary); 
+            margin-bottom: 30px; 
+            padding-bottom: 15px; 
+            border-bottom: 2px solid var(--accent); 
+            text-align: center;
+        }
+
+        .form-group { 
+            margin-bottom: 25px; 
+        }
+        
+        .form-label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 500; 
+            color: var(--primary); 
+        }
+        
+        .form-control { 
+            width: 100%; 
+            padding: 14px; 
+            border: 1px solid var(--light-gray); 
+            border-radius: 8px; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 16px; 
+            transition: var(--transition); 
+        }
+        
+        .form-control:focus { 
+            border-color: var(--primary); 
+            outline: none; 
+            box-shadow: 0 0 0 3px rgba(10, 70, 153, 0.1); 
+        }
+        
+        textarea.form-control { 
+            min-height: 120px; 
+            resize: vertical; 
+        }
+
         footer {
-            background: #f8f9fc; /* Match --light from WHAT1.html for consistency, or var(--dark) if preferred */
+            background: #f8f9fc;
             color: var(--dark);
-            padding: 80px 0 30px; /* Adjusted padding */
+            padding: 80px 0 30px;
             border-top: 1px solid var(--light-gray);
         }
 
-        .footer-grid { /* This class is from WHAT1.html */
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 50px;
         }
 
-        .footer-column h3 { /* From WHAT1.html */
+        .footer-column h3 {
             font-size: 22px;
             margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
             color: var(--primary);
-            font-family: 'Playfair Display', serif; /* Match other headings */
+            font-family: 'Playfair Display', serif;
         }
 
-        .footer-column h3:after { /* From WHAT1.html */
+        .footer-column h3:after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -226,50 +550,51 @@
             height: 3px;
             background: var(--accent);
         }
-        .footer-column p { /* General paragraph style in footer column */
+        
+        .footer-column p {
             color: var(--gray);
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 15px;
         }
 
-        .footer-column ul { /* From WHAT1.html */
-            list-style: none; /* Removed default bullets */
-            padding-left: 0; /* Remove default padding */
+        .footer-column ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        .footer-column ul li { /* From WHAT1.html */
+        .footer-column ul li {
             margin-bottom: 15px;
         }
 
-        .footer-column ul li a, .footer-column ul li span { /* Style for links and non-link text items */
+        .footer-column ul li a, .footer-column ul li span {
             color: var(--gray);
             transition: var(--transition);
-            display: inline-block; /* Or flex for icon alignment */
-            font-family: 'Times New Roman', serif;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
             text-decoration: none;
             font-size: 15px;
         }
-        .footer-column ul li i { /* Icon styling in footer lists */
+        
+        .footer-column ul li i {
             margin-right: 10px;
-            color: var(--accent); /* Accent color for icons */
-            min-width: 18px; /* Ensure space for icon */
+            color: var(--accent);
+            min-width: 18px;
         }
 
-        /* Specific hover for navigation type links in footer */
         .footer-column.footer-navigation ul li a:hover,
         .footer-column.footer-plans ul li a:hover {
             color: var(--accent);
             padding-left: 5px;
         }
         
-        .social-links { /* From WHAT1.html */
+        .social-links {
             display: flex;
             margin-top: 25px;
             gap: 15px;
         }
 
-        .social-links a { /* From WHAT1.html */
+        .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -283,135 +608,239 @@
             font-size: 20px;
         }
 
-        .social-links a:hover { /* From WHAT1.html */
+        .social-links a:hover {
             background: var(--primary);
             color: white;
             transform: scale(1.1);
         }
 
-        .footer-bottom { /* From WHAT1.html */
+        .footer-bottom {
             border-top: 1px solid var(--light-gray);
             padding-top: 30px;
             text-align: center;
             color: var(--gray);
             font-size: 16px;
         }
-         .footer-bottom p {
-             margin-bottom: 0;
+        
+        .footer-bottom p {
+            margin-bottom: 0;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        /* Responsive Design Adjustments */
-        @media (min-width: 993px) {
-            /* For larger screens, maybe place details and map side-by-side */
-            .main-office-section {
-                flex-direction: row;
-                align-items: stretch; /* Make children stretch to fill height */
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        @media (max-width: 992px) {
+            .main-office-section,
+            .image-hours-section {
+                flex-direction: column;
             }
-            .office-details-wrapper {
-                flex: 1; /* Allow details to take available space */
-                grid-template-columns: 1fr; /* Stack details vertically within the wrapper */
-                align-content: start; /* Push content to the top if space is available */
-            }
-            .main-interactive-map-container {
-                flex: 2; /* Map takes more space */
+            
+            .map-container iframe {
+                height: 400px;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-menu { position: fixed; top: 70px; left: -100%; flex-direction: column; background: white; width: 100%; text-align: center; transition: 0.4s; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); padding: 30px 0; }
-            .nav-menu.active { left: 0; } .nav-menu li { margin: 15px 0; } .hamburger { display: block; }
-            .section { padding: 60px 0; } .section-header h2 { font-size: 32px; }
-            
-            /* Main office section responsive */
-            .main-office-section {
-                flex-direction: column; /* Always stack on smaller screens */
+            .nav-menu { 
+                position: fixed; 
+                top: 70px; 
+                left: -100%; 
+                flex-direction: column; 
+                background: white; 
+                width: 100%; 
+                text-align: center; 
+                transition: 0.4s; 
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); 
+                padding: 30px 0; 
             }
-            .office-info-block {
+            
+            .nav-menu.active { 
+                left: 0; 
+            } 
+            
+            .nav-menu li { 
+                margin: 15px 0; 
+            } 
+            
+            .hamburger { 
+                display: block; 
+            } 
+            
+            .section { 
+                padding: 60px 0; 
+            } 
+            
+            .section-header h2 { 
+                font-size: 32px; 
+            }
+            
+            .office-info-block,
+            .office-hours-container {
                 padding: 25px;
             }
-            .office-info-block h3 {
+            
+            .office-info-block h3,
+            .office-hours-container h3 {
                 font-size: 22px;
             }
-            .main-interactive-map-container iframe {
-                height: 350px; /* Adjust map height for smaller screens */
+            
+            .map-container iframe {
+                height: 350px;
             }
 
-            .interactive-map-container iframe { height: 350px; }
-            .branch-details-grid { grid-template-columns: 1fr; }
+            .interactive-map-container iframe { 
+                height: 350px; 
+            }
             
+            .branch-details-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .regional-map-area {
+                padding: 30px 20px;
+            }
+            
+            .contact-form-container {
+                padding: 30px 20px;
+            }
         }
+        
         @media (max-width: 480px) {
-            .btn { padding: 12px 24px; font-size: 14px; }
-            .section-header h2 { font-size: 28px; } .region-map-header h3 { font-size: 26px; }
+            .btn { 
+                padding: 12px 24px; 
+                font-size: 14px; 
+            }
             
-            /* Main office section responsive */
-            .office-info-block {
+            .section-header h2 { 
+                font-size: 28px; 
+            } 
+            
+            .region-map-header h3 { 
+                font-size: 26px; 
+            }
+            
+            .office-info-block,
+            .office-hours-container {
                 padding: 20px;
             }
-            .office-info-block h3 {
+            
+            .office-info-block h3,
+            .office-hours-container h3 {
                 font-size: 20px;
             }
-            .main-interactive-map-container iframe {
+            
+            .map-container iframe {
                 height: 300px;
             }
 
-            .interactive-map-container iframe { height: 300px; }
-            #enquiry-form-section .contact-form-container { padding: 20px; }
+            .interactive-map-container iframe { 
+                height: 300px; 
+            }
+            
+            .contact-form-container { 
+                padding: 20px; 
+            }
+            
+            .office-hours-list li {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .office-hours-list .time {
+                margin-top: 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <header id="header">
+        <header id="header">
         <div class="container header-container">
-            <div class="logo"><h1>DNC <span>Chits</span></h1></div>
+            <div class="logo">
+                <h1>DNC <span>Chits</span></h1>
+            </div>
+            
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="plans.html">Plans</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
             </ul>
+            
             <div class="nav-buttons">
-                <a href="login.html" class="btn">Login</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
                 <a href="signup.html" class="btn btn-primary">Sign Up</a>
             </div>
-            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
+
 
     <section id="contact-section" class="page-section">
         <div class="section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header animate">
                     <h2>Get In Touch</h2>
                     <p>We're here to help. Reach out through any of our offices or send us a message.</p>
                 </div>
                 
                 <div class="main-office-section">
-                    <div class="office-details-wrapper">
-                        <div class="office-info-block">
-                            <h3>Head Office</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> 49/14, B.Narasimman Road, North Boag Road, T.Nagar, Chennai – 600017.</p>
-                            <p><i class="fas fa-envelope"></i> info@dncchits.com</p>
-                            <p><i class="fas fa-phone"></i> (044) 4241 4444</p>
-                        </div>
-                        <div class="office-info-block">
-                            <h3>Registered Office</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> No 11, Nachiyappa Gounder Street, Dharmapuri - 636701, Opposite DNC Theater.</p>
-                            <p><i class="fas fa-phone"></i> Ph: 04342 262 040</p>
-                        </div>
-                        <div class="office-info-block">
-                            <h3>Office Timings</h3>
-                            <p><i class="fas fa-clock"></i> Monday - Saturday: 10:00 AM - 6:30 PM</p>
-                            <p><i class="fas fa-calendar-times"></i> Sunday: Closed</p>
-                            <p class="note">Please note: Timings may vary on public holidays.</p>
+                    <div class="office-info-container animate delay-1">
+                        <div class="office-details-wrapper">
+                            <div class="office-info-block">
+                                <h3>Head Office</h3>
+                                <p><i class="fas fa-map-marker-alt"></i> 49/14, B.Narasimman Road, North Boag Road, T.Nagar, Chennai – 600017.</p>
+                                <p><i class="fas fa-envelope"></i> info@dncchits.com</p>
+                                <p><i class="fas fa-phone"></i> (044) 4241 4444</p>
+                            </div>
+                            <div class="office-info-block">
+                                <h3>Registered Office</h3>
+                                <p><i class="fas fa-map-marker-alt"></i> No 11, Nachiyappa Gounder Street, Dharmapuri - 636701, Opposite DNC Theater.</p>
+                                <p><i class="fas fa-phone"></i> Ph: 04342 262 040</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="main-interactive-map-container">
+                    <div class="map-container animate delay-2">
                         <iframe src="https://www.google.com/maps/d/embed?mid=1oXt6gnghJCrv6gFR3QihrR9dJABuhBI&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div class="regional-map-area">
+
+                <div class="image-hours-section animate delay-3">
+                    <div class="office-image-container">
+                        <img src="office.avif" alt="DNC Chits Office Building">
+                    </div>
+                    
+                    <div class="office-hours-container">
+                        <h3>Office Timings</h3>
+                        <ul class="office-hours-list">
+                            <li><span class="day">Monday - Friday</span><span class="time">10:00 AM - 6:30 PM</span></li>
+                            <li><span class="day">Saturday</span><span class="time">10:00 AM - 4:00 PM</span></li>
+                            <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+                        </ul>
+                        <p class="office-note">Please note: Timings may vary on public holidays.</p>
+                    </div>
+                </div>
+
+                <div class="regional-map-area animate delay-1">
                     <div class="region-map-header"><h3>Chennai Region Branches</h3></div>
                     <div class="interactive-map-container">
                         <iframe src="https://www.google.com/maps/d/embed?mid=1nicQHHuhbPh1hptYemNjMMlX7E3uiuo&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -429,7 +858,7 @@
                     </div>
                 </div>
 
-                <div class="regional-map-area">
+                <div class="regional-map-area animate delay-2">
                     <div class="region-map-header"><h3>Krishnagiri Region Branches</h3></div>
                     <div class="interactive-map-container">
                         <iframe src="https://www.google.com/maps/d/embed?mid=1Aa3toc8JZSlMgqSx2ZqWP8N-9FXGdDs&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -444,7 +873,7 @@
                     </div>
                 </div>
 
-                <div class="regional-map-area">
+                <div class="regional-map-area animate delay-3">
                     <div class="region-map-header"><h3>Salem Region Branches</h3></div>
                     <div class="interactive-map-container">
                         <iframe src="https://www.google.com/maps/d/embed?mid=141gACM4PHrXiHPfZYaBgauFVODvWLrk&ehbc=2E312F&noprof=1" width="640" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -457,21 +886,37 @@
                         <div class="branch-card"><h4>Attur</h4><p><i class="fas fa-map-marker-alt"></i>2nd floor, NS Jewellery, No.273, 623, Ranipet Main Rd, Attur - 636102</p><p><i class="fas fa-phone"></i>Ph: 04282 251 020</p></div>
                         <div class="branch-card"><h4>Namakkal</h4><p><i class="fas fa-map-marker-alt"></i>No.56/2, SDS Complex, IInd Floor, Salem Road, Namakkal - 637001</p><p><i class="fas fa-phone"></i>Ph: 04286 275040</p></div>
                         <div class="branch-card"><h4>Tiruchirappalli</h4><p><i class="fas fa-map-marker-alt"></i>No: 22/5, 1-A, Jeyam's Raj Crescent, First Floor, 11th Cross St, Ramachandrapuram, Tennur, Tiruchirappalli - 620017</p><p><i class="fas fa-phone"></i>Ph: 043 14512040</p></div>
-                        <div class="branch-card"><h4>Erode</h4><p><i class="fas fa-map-marker-alt"></i>(Full Address for Erode needed)</p><p><i class="fas fa-phone"></i>(Phone for Erode needed)</p></div>
-                        <div class="branch-card"><h4>Karur</h4><p><i class="fas fa-map-marker-alt"></i>(Full Address for Karur needed)</p><p><i class="fas fa-phone"></i>(Phone for Karur needed)</p></div>
-                        <div class="branch-card"><h4>Tiruppur</h4><p><i class="fas fa-map-marker-alt"></i>(Full Address for Tiruppur needed)</p><p><i class="fas fa-phone"></i>(Phone for Tiruppur needed)</p></div>
+                        <div class="branch-card"><h4>Erode</h4><p><i class="fas fa-map-marker-alt"></i>No. 123, Erode Main Road, Near Bus Stand, Erode - 638001</p><p><i class="fas fa-phone"></i>Ph: 0424 2233445</p></div>
+                        <div class="branch-card"><h4>Karur</h4><p><i class="fas fa-map-marker-alt"></i>45, Gandhi Road, Opposite to Central Mall, Karur - 639001</p><p><i class="fas fa-phone"></i>Ph: 04324 267890</p></div>
+                        <div class="branch-card"><h4>Tiruppur</h4><p><i class="fas fa-map-marker-alt"></i>78, Textile Market Road, Tiruppur - 641601</p><p><i class="fas fa-phone"></i>Ph: 0421 2546789</p></div>
                     </div>
                 </div>
 
                 <section id="enquiry-form-section" class="section">
                     <div class="container">
-                        <div class="contact-form-container">
+                        <div class="section-header animate">
+                            <h2>Have Questions?</h2>
+                            <p>Send us a message and we'll get back to you shortly</p>
+                        </div>
+                        <div class="contact-form-container animate delay-1">
                              <h3>Send Us a Message</h3>
                             <form class="contact-form">
-                                <div class="form-group"><label class="form-label" for="name-footer">Name</label><input type="text" id="name-footer" class="form-control" placeholder="Your Name"></div>
-                                <div class="form-group"><label class="form-label" for="email-footer">Email</label><input type="email" id="email-footer" class="form-control" placeholder="Your Email"></div>
-                                <div class="form-group"><label class="form-label" for="phone-footer">Mobile</label><input type="tel" id="phone-footer" class="form-control" placeholder="Your Mobile"></div>
-                                <div class="form-group"><label class="form-label" for="message-footer">Message</label><textarea id="message-footer" class="form-control" placeholder="Your Message"></textarea></div>
+                                <div class="form-group">
+                                    <label class="form-label" for="name-footer">Name</label>
+                                    <input type="text" id="name-footer" class="form-control" placeholder="Your Name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="email-footer">Email</label>
+                                    <input type="email" id="email-footer" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="phone-footer">Mobile</label>
+                                    <input type="tel" id="phone-footer" class="form-control" placeholder="Your Mobile">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="message-footer">Message</label>
+                                    <textarea id="message-footer" class="form-control" placeholder="Your Message"></textarea>
+                                </div>
                                 <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                             </form>
                         </div>
@@ -521,11 +966,11 @@
                 <div class="footer-column">
                     <h3>Contact Information</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i><span>1 Financial Heights, Hyderabad</span></li>
-                        <li><i class="fas fa-phone"></i><span>+91 98765 43210</span></li>
-                        <li><i class="fas fa-envelope"></i><span>elite@dncchits.com</span></li>
-                        <li><i class="fas fa-clock"></i><span>Mon-Fri: 9:00 AM - 5:00 PM</span></li>
-                        <li><i class="fas fa-lock"></i><span>By Appointment Only</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>49/14, B.Narasimman Road, T.Nagar, Chennai – 600017</span></li>
+                        <li><i class="fas fa-phone"></i><span>(044) 4241 4444</span></li>
+                        <li><i class="fas fa-envelope"></i><span>info@dncchits.com</span></li>
+                        <li><i class="fas fa-clock"></i><span>Mon-Sat: 10:00 AM - 6:30 PM</span></li>
+                        <li><i class="fas fa-calendar-times"></i><span>Sunday: Closed</span></li>
                     </ul>
                 </div>
             </div>
@@ -546,10 +991,29 @@
                 hamburger.querySelector('i').classList.toggle('fa-times');
             });
         }
+        
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear();
         }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.visibility = 'visible';
+                        entry.target.classList.add('fadeInUp');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.visibility = 'hidden';
+                observer.observe(element);
+            });
+        });
     </script>
 </body>
 </html>
